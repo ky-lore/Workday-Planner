@@ -1,4 +1,8 @@
-document.getElementById("currentDay").innerText = moment().format('MMMM Do YYYY, h:mm a');
+function displayTime() {
+  document.getElementById("currentDay").innerText = moment().format('MMMM Do YYYY, h:mm:ss a');
+}
+
+setInterval(displayTime, 1000)
 
 function getCurrentHour() {
   var time = moment().hour();
