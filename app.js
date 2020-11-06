@@ -39,7 +39,6 @@ for (i = 0; i < hours; i++) {
   })
 }
 
-
 function initializeLocalStorage() {
   for (i = 9; i < 18; i++) {
     let storedItem = window.localStorage.getItem(i)
@@ -52,6 +51,18 @@ function initializeLocalStorage() {
 
 initializeLocalStorage();
 
+function checkTimeClear() {
+  var time = moment().hour();
+  console.log(time)
+  if (time < 9 || time > 17) {
+    for (i = 9; i < 18; i++) { 
+      localStorage.removeItem(`${i}`) 
+    }
+  }
+}
+
+//checkTimeClear();
+
 // --GIVEN I am using a daily planner to create a schedule
 // --WHEN I open the planner
 // --THEN the current day is displayed at the top of the calendar
@@ -63,5 +74,5 @@ initializeLocalStorage();
 // --THEN I can enter an event
 // --WHEN I click the save button for that timeblock
 // --THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
+// --WHEN I refresh the page
+// --THEN the saved events persist
