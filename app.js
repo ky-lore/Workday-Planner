@@ -59,13 +59,50 @@ function checkTimeClear() {
   var time = moment().hour();
   console.log(time)
   if (time < 9 || time > 17) {
-    for (i = 9; i < 18; i++) { 
-      localStorage.removeItem(`${i}`) 
+    for (i = 9; i < 18; i++) {
+      localStorage.removeItem(`${i}`)
     }
   }
 }
 
 //checkTimeClear();
+
+function milToStandard() {
+  for (i = 0; i < document.getElementsByClassName("hour").length; i++) {
+    var milTime = document.getElementsByClassName("hour")[i].textContent;
+    switch (milTime) {
+      case "9:00":
+        document.getElementsByClassName("hour")[i].textContent = "9 AM"
+        break;
+      case "10:00":
+        document.getElementsByClassName("hour")[i].textContent = "10 AM"
+        break;
+      case "11:00":
+        document.getElementsByClassName("hour")[i].textContent = "11 AM"
+        break;
+      case "12:00":
+        document.getElementsByClassName("hour")[i].textContent = "12 PM"
+        break;
+      case "13:00":
+        document.getElementsByClassName("hour")[i].textContent = "1 PM"
+        break;
+      case "14:00":
+        document.getElementsByClassName("hour")[i].textContent = "2 PM"
+        break;
+      case "15:00":
+        document.getElementsByClassName("hour")[i].textContent = "3 PM"
+        break;
+      case "16:00":
+        document.getElementsByClassName("hour")[i].textContent = "4 PM"
+        break;
+      case "17:00":
+        document.getElementsByClassName("hour")[i].textContent = "5 PM"
+        break;
+    }
+  }
+}
+
+milToStandard();
 
 // --GIVEN I am using a daily planner to create a schedule
 // --WHEN I open the planner
